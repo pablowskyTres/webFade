@@ -15,7 +15,7 @@ class Slider{
 	            <div><p>Descripcion imagen 2</p></div>
 			</li>
 			<li>
-				<a href="contacto.php"><img src=/webFade/img/slide3.jpg alt="Slider Image 3"></a>
+				<a href="contacto.php"><img src=/webFade/img/petzlSitta.jpg alt="Slider Image 3"></a>
 	            <div><p>Descripcion imagen 3</p></div>
 			</li>
 		</ul>
