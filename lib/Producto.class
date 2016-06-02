@@ -1,0 +1,24 @@
+class Producto{
+	
+	/**
+     * foo container
+     *
+     * @var AbcClass
+     }
+
+     
+     */
+    private $foo;
+
+
+	/**
+	 * Class Constructor
+	 * @param    $foo   
+	 */
+	public function __construct($foo)
+	{
+		$this->foo = $foo;
+	}
+
+	
+}
