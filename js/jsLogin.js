@@ -1,25 +1,26 @@
 // JavaScript Document
 $(document).ready(function () {
-	if (document.getElementById('LOGIN').val() == 'LOGIN') {
-		alert("LOGIN");
-	}
 
-    var id = $('#id_conexion').val();
-    if (id == 0) {
-		$('#user_conexion').html("");
-    }else{
-    	$.ajax(
-	    	{
+	var valido = 0;
+
+    $( "#login" ).on( "submit", function(evento) {
+    	var user = $('#txt_username').val();
+    	var pass = $('#txt_password').val();
+    	$.ajax({
 	            type: "POST",
-	            url: "../php/php.php",
-	            data: {id: id, cmd: 'LOGIN'},
+	            url: "../webFade/php/php.php",
+	            data: {cmd: 'verificarLogin'},
 	            cache: false,
 	            success: function (retorno) {
-	                $('#user_conexion').html(retorno);
+	                valido = retorno;
 	            }
-	    	}
-    	);
-    }
+	    });
+  		if (valido == 0) {
+			evento.preventDefault();
+			$('#mensaje').show();
+  		}
+	});
+
 });
 
 var iniciarSesion = function($id){

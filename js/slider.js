@@ -15,7 +15,7 @@ $(document).ready(function() {
             SliderInit();
         }
         var SliderInit = function () {
-            SliderInternal = setInterval(pb.startSlider, 3000);
+            SliderInternal = setInterval(pb.startSlider, 5000);
         }
         pb.startSlider = function () {
             var panels = pb.items.panel;

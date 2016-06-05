@@ -117,9 +117,10 @@ switch ($op) {
 				$pass = crypt($password, $hash);
 				$persona_id = $cuentaDao->login($user, $pass);
 				if ($persona_id == null) {
-					print_r("Usuario o Contraseña incorrectos");
+					$mensaje = $ingresar->getMensaje('errLogin');
 				}
 				else{
+					$mensaje = "";
 					$_SESSION['id_conexion']  = $persona_id;
 					$_SESSION['user']  = $user;
 					header("Refresh:0; url=index.php");
@@ -129,7 +130,7 @@ switch ($op) {
 				print_r("");
 				break;
 	}
-		$contenido = $ingresar->getHtml();
+		$contenido = $mensaje.$ingresar->getHtml();
 		break;
 	case CONTACTO:
 		$do = isset($_POST['action']) ? $_POST['action'] : $do = null;
@@ -217,13 +218,15 @@ $html =<<<HTML
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Escalada</title>
 </head>
-	$head
-	$mostrarSesion
-	$contenido
-	$foot
+	<body class="fondo">
+		$head
+		$mostrarSesion
+		$contenido
+		$foot
+	</body>
 <script type="text/javascript" src="js/jquery-1.12.3.min.js"> </script>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js" type="text/javascript"></script>
-<!--<script language="JavaScript" type="text/javascript" src="js/jsLogin.js"></script>-->
+<script language="JavaScript" type="text/javascript" src="js/jsLogin.js"></script>
 <script language="JavaScript" type="text/javascript" src="js/jsMantenedor_producto.js"></script>
 <script language="JavaScript" type="text/javascript" src="js/slider.js"></script>
 <!--<script type="text/javascript" src="js/function.js"> </script>-->

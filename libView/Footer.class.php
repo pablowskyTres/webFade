@@ -8,7 +8,6 @@ class Footer{
 	<p>Todos los derechos reservados</p>
 	<p>Pablo Bade | Cristopher Salgado</p>
 </div>
-</body>
 HTML;
 	return $html;
 	}

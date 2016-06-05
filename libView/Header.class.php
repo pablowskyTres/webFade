@@ -3,7 +3,6 @@ class Header{
 
 	public function getHtml(){
 		$html=<<<HTML
-<body class="fondo">
 <div id="contenedor" class="contenidoprincipal">
 	<!--cabecera-->
     <div class="monito"><a href="#"><img src="/webFade/img/monito.png" /></a></div>
