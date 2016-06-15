@@ -1,6 +1,8 @@
 <?php 
 //INDEX
 define("INICIO", "1");
+define("CATALOGO", "cat");
+
 //REGISTRAR
 define("REGISTRAR", "2");
 //INGRESAR

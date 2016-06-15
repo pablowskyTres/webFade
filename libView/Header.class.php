@@ -3,7 +3,7 @@ class Header{
 
 	public function getHtml(){
 		$html=<<<HTML
-<div id="contenedor" class="contenidoprincipal">
+<div id="contenedor" class="contenido">
 	<!--cabecera-->
     <div class="monito"><a href="#"><img src="/webFade/img/monito.png" /></a></div>
     <!-- <div><img src="img/header_bg.png" width="100%" height="100" alt="banner"/></div> -->
@@ -12,15 +12,15 @@ class Header{
         <nav>
             <ul>
                 <li><a href="index.php"><strong>Inicio</strong></a></li>
-                <li><a href="producto.php"><strong>Productos</strong></a></li>
+                <li><a href="index.php?op=cat"><strong>Productos</strong></a></li>
                 <li><a href="index.php?op=6"><strong>Contacto</strong></a></li>
-                <li><strong class="letrasNegras">Administración</strong>
+                <li><strong>Administración</strong>
                 	<ul>
                         <li><a href="index.php?op=8"><strong>Producto</strong></a></li>
                     	<li><a href="index.php?op=7"><strong>Listado Mensajes</strong></a></li>
             		</ul>
                 </li>
-                <li><strong class="letrasNegras">Cuenta</strong>
+                <li><strong>Cuenta</strong>
             		<ul>
                     	<li><a href="index.php?op=2"><strong>Registro</strong></a></li>
                     	<li><a href="index.php?op=3"><strong>Ingreso</strong></a></li>

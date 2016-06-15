@@ -1,13 +1,28 @@
 @charset "utf-8";
 /* CSS Document */
+html, body {
+	height: 100%;
+	padding:0;
+	margin:0;
+	position: relative;
+	color:#FFF;
+	text-align:center;
+	font-family: 'Droid Sans', sans-serif;
+}
+
+.wrap {min-height: 100%;}
+
 .footer {
-	/* position: absolute; */
+	position: relative;
+	margin-top: -100px; /* negative value of footer height */
+	height: 180px;
+	clear:both;
 	margin-top:10px;
 	border-top: 2px solid #000;
 	bottom: 0;
 	width: 100%;
 	/* Set the fixed height of the footer here */
-	height: 70px;
+	height: 100px;
 	background-color: #19181A;
 }
 .sesion{
@@ -30,33 +45,20 @@
 .distanciaTop{
 	margin-top:50px;
 }
-html, body {
-	padding:0;
-	margin:0;
-	position: relative;
-	height: 100%;
-	margin-bottom:70px;
-	color:#FFF;
-	text-align:center;
-	font-family: 'Droid Sans', sans-serif;
 
-        /*Hace que la página llene toda la altura*/ 
-}
-.contenidoprincipal  {
+.contenido  {
+	overflow:hidden;
+	padding-bottom: 100px;
 	position: relative;
 	width:100%;
 	min-height:100%;
-	background-color: #FFF; /* BORRAR BORRAR BORRAR BORRAR BORRAR */
         /*Empuja el pie hacia abajo*/ 
 }
 /*
 Fondos
 */
 .fondo {
-	background-image:url(../img/fondoB&W.jpg);
-	background-size:100%;
-	background-attachment:fixed;
-	background-repeat:no-repeat;
+	background-color: #fff;
 }
 .letrasNegras{
 	color:#000;
@@ -103,14 +105,9 @@ Botones
  */
 .btn {
   background: #328dc9;
-  background-image: -webkit-linear-gradient(top, #328dc9, #4d5559);
-  background-image: -moz-linear-gradient(top, #328dc9, #4d5559);
-  background-image: -ms-linear-gradient(top, #328dc9, #4d5559);
-  background-image: -o-linear-gradient(top, #328dc9, #4d5559);
-  background-image: linear-gradient(to bottom, #328dc9, #4d5559);
   -webkit-border-radius: 28;
   -moz-border-radius: 28;
-  border-radius: 28px;
+  border-radius: 5px;
   font-family: Arial;
   color: #ffffff;
   font-size: 13px;
@@ -120,11 +117,6 @@ Botones
 
 .btn:hover {
   background: #adadad;
-  background-image: -webkit-linear-gradient(top, #adadad, #4d4d4d);
-  background-image: -moz-linear-gradient(top, #adadad, #4d4d4d);
-  background-image: -ms-linear-gradient(top, #adadad, #4d4d4d);
-  background-image: -o-linear-gradient(top, #adadad, #4d4d4d);
-  background-image: linear-gradient(to bottom, #adadad, #4d4d4d);
   text-decoration: none;
 }
 
@@ -165,7 +157,7 @@ nav ul {
 	width:100%;
 }
 nav ul a {
-	color:black;
+	color:white;
 	text-decoration:none;
 }
 nav > ul > li {
@@ -173,7 +165,7 @@ nav > ul > li {
 	height:100%;
 	color: white;
 	display: inline-block;
-	background: #C5C5C5;
+	background: #19181A;
 	position: relative;
 	margin: -4px;
 	width:20%;
@@ -196,7 +188,7 @@ nav > ul > li > ul > li {
 	display: block;
 	list-style:none;
 	position: relative;
-	background: #C5C5C5;	
+	background: #19181A;	
 	width: 100%;	
 	opacity: 1;
 	z-index:99;
@@ -285,9 +277,14 @@ a:hover{
 	color:#f39c12;
 }
 .contenedorFormulario{
-	background-color:#2c3e50;
+	color: white;
+	background-color:#404241;
 	opacity: 0.95;
 	border-color: #ecf0f1;
 	border: 2px solid;
-    border-radius: 25px;
+    border-radius: 5px;
+}
+
+.form-control{
+	width: 95%;
 }

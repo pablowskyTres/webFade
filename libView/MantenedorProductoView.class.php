@@ -35,10 +35,6 @@ class MantenedorProducto{
                             <a href="#" onclick="modificarProducto('.$paramId.','.$paramNom.','.$paramStock.','.$paramDesc.')" class="btn">Modificar<a/></td>
                     <tr>';
         }
-        //<input type="submit" class="btn btn-primary" name="action" value="Modificar"/>
-        $html=<<<HTML
-            $fila
-HTML;
         return $fila;
     }
 

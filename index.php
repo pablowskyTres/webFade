@@ -24,6 +24,7 @@ require_once('libView/RegistrarView.class.php');
 require_once('libView/IngresarView.class.php');
 require_once('libView/ContactoView.class.php');
 require_once('libView/MantenedorProductoView.class.php');
+require_once('libView/CatalogoView.class.php');
 
 //INSTANCIA CONEXION
 $conexion = null;
@@ -45,6 +46,7 @@ $registrar = new Registrar();
 $ingresar = new Ingresar();
 $contacto_view = new ContactoView();
 $mantenedor_producto = new MantenedorProducto();
+$catalogo = new CatalogoView();
 
 //INSTANCIA HTML
 $contenido = null;
@@ -109,6 +111,7 @@ switch ($op) {
 		if (!isset($do)) {
 		$do = isset($_REQUEST['do']) ? $do = $_REQUEST['do'] : $do = null;
 		}
+		$mensaje = "";
 		switch ($do) {
 			case LOGIN:
 				$hash = "polloloco";
@@ -120,7 +123,6 @@ switch ($op) {
 					$mensaje = $ingresar->getMensaje('errLogin');
 				}
 				else{
-					$mensaje = "";
 					$_SESSION['id_conexion']  = $persona_id;
 					$_SESSION['user']  = $user;
 					header("Refresh:0; url=index.php");
@@ -194,6 +196,9 @@ switch ($op) {
 		}
 		$contenido = $mantenedor_producto->getHtml();
 		break;
+	case CATALOGO:
+		$contenido = $catalogo->getHtml();
+		break;
 	case LOGOUT:
 		session_unset(); 
 		session_destroy();
@@ -215,13 +220,16 @@ $html =<<<HTML
 <head>
 <!--<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />-->
 <link rel="stylesheet" type="text/css" href="css/hojaDeEstilo.css" />
+<link rel="stylesheet" type="text/css" href="css/newone.css" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Escalada</title>
 </head>
 	<body class="fondo">
-		$head
-		$mostrarSesion
-		$contenido
+		<div class="wrap">
+			$head
+			$mostrarSesion
+			$contenido
+		</div>	
 		$foot
 	</body>
 <script type="text/javascript" src="js/jquery-1.12.3.min.js"> </script>

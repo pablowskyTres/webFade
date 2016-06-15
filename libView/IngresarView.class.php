@@ -3,21 +3,24 @@ class Ingresar{
 
 	public function getHtml(){
 		$html=<<<HTML
-<div class="distanciaTop">
-<form action="index.php?op=3" method="POST" name="login" id="login">
+<div class="distanciaTop col-xs-offset-3 col-xs-10">
+<form action="index.php?op=3" method="POST" name="login" id="login" class="centrar">
 <p>Iniciar sesión</p>
 <table cellpadding="10" class="contenedorFormulario" style="margin: 0 auto">
+    <tr>
+        <td><h1>LOGIN</h1></td>
+    </tr>
 	<tr>
-    	<td><label for="edit-name">Usuario<span class="form-required" title="Este campo es obligatorio."></span></label></td>
-        <td><input class="textBox" placeholder="Ingrese su correo" type="text" id="txt_username" name="txt_username" value="" size="60" maxlength="60" required="required"></td>
+        <td><input class="form-control" placeholder="Correo" type="text" id="txt_username" name="txt_username" value="" size="60" maxlength="60" required="required"></td>
     </tr>
     <tr>
-    	<td><label for="edit-name">Contraseña<span class="form-required" title="Este campo es obligatorio."></span></label></td>
-        <td><input class="textBox" placeholder="Ingrese su contraseña" type="password" id="txt_password" name="txt_password" size="60" maxlength="128" required="required" /></td>
+        <td><input class="form-control" placeholder="Contraseña" type="password" id="txt_password" name="txt_password" size="60" maxlength="128" required="required" /></td>
     </tr>
     <tr>
-    	<td><input type="submit" id="LOGIN" name="action" value="LOGIN" class="btn"></div>  </td>
-        <td><a href="user/password">¿Olvido su contraseña?</a></div></td>
+    	<td><input type="submit" id="LOGIN" name="action" value="LOGIN" class="btn form-control"></div>  </td>
+    </tr>
+    <tr>
+        <td><a class="form-control" href="user/password">¿Olvido su contraseña?</a></div></td>
     </tr>
 </table>
 </form>
