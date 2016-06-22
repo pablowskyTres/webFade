@@ -14,15 +14,43 @@ class CatalogoView{
         $this->productoDao = new ProductoDao();
     }
 
+    public function selectCategoria(){
+        $html=<<<HTML
+            <div>
+                <select id="selectCategoria" name="selectCategoria" class="form-control">
+                    <option>Categorias</option>
+                </select>
+            </div>
+HTML;
+        return $html;
+    }
+
     public function getHtml(){
-    	$tabla = $this->tablaProducto($this->getTablaProductos());
+        $selectCategoria = $this->selectCategoria();
+    	$tabla = $this->getCatalogo($this->getTablaProductosCatalogo());
     	$html=<<<HTML
-    		<div class="distanciaTop">
+    		<div class="distanciaTop panel">
     			<h1>Catalogo</h1>
-    			$tabla
+                <div class="row">
+                    <div class="col-xs-4">
+                        $selectCategoria
+                    </div>
+                    <div class="col-xs-7 panel">
+                        $tabla
+                    </div>
+                </div>
     		</div>
 HTML;
 		return $html;
+    }
+
+    function getCatalogo($datos){
+        $html=<<<HTML
+        <div class="distanciaTop">
+            $datos
+        </div>
+HTML;
+        return $html;
     }
 
     function tablaProducto($datos){
@@ -63,6 +91,36 @@ HTML;
                         <td>'.$stock.'</td>
                         <td>'.$desc.'</td>
                     <tr>';
+        }
+        $html=<<<HTML
+            $fila
+HTML;
+        return $fila;
+    }
+
+    function getTablaProductosCatalogo(){
+        $arr = $this->productoDao->sqlSelectAll();
+        $fila = "";
+        $i = 1;
+        foreach ($arr as $elem) {
+            if ($i == 4) {
+                $i = 1;
+            }
+            $id = $elem['id'];
+            $nom = $elem['nombre'];
+            $stock = $elem['stock'];
+            $desc = $elem['descripcion'];
+            $paramId = $id;
+            $paramNom = "'".$nom."'";
+            $paramStock = $stock;
+            $paramDesc = "'".$desc."'";
+            $fila .=  
+                    '<div class="col-xs-3 mostrador">
+                        <a href="index.php?op=cat"><img src="/webFade/img/arnes.jpg" /></a>
+                        <label>'.$nom.' '.$desc.'</label>
+                        <div> Stock '.$stock.'</div>
+                    </div>';
+            $i++;
         }
         $html=<<<HTML
             $fila

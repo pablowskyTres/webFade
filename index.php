@@ -7,6 +7,9 @@ require_once 'lib/Contacto.class.php';
 require_once 'lib/Persona.class.php';
 require_once 'lib/Usuario.class.php';
 
+//HELPERS
+require_once 'helpers/Session.class.php';
+
 // require_once 'lib/Conexion.class.php';
 
 // LLAMADO DAO
@@ -27,6 +30,7 @@ require_once('libView/MantenedorProductoView.class.php');
 require_once('libView/CatalogoView.class.php');
 
 //INSTANCIA CONEXION
+$sesion = new Session();
 $conexion = null;
 $mostrarSesion = "";
 session_start();
@@ -197,6 +201,7 @@ switch ($op) {
 		$contenido = $mantenedor_producto->getHtml();
 		break;
 	case CATALOGO:
+		$sesion->setJs("js/jsCatalogo.js");
 		$contenido = $catalogo->getHtml();
 		break;
 	case LOGOUT:
@@ -235,6 +240,7 @@ $html =<<<HTML
 <script type="text/javascript" src="js/jquery-1.12.3.min.js"> </script>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js" type="text/javascript"></script>
 <script language="JavaScript" type="text/javascript" src="js/jsLogin.js"></script>
+<!--<script language="JavaScript" type="text/javascript" src="js/jsCatalogo.js"></script>-->
 <script language="JavaScript" type="text/javascript" src="js/jsMantenedor_producto.js"></script>
 <script language="JavaScript" type="text/javascript" src="js/slider.js"></script>
 <!--<script type="text/javascript" src="js/function.js"> </script>-->
@@ -242,7 +248,8 @@ $html =<<<HTML
 HTML;
 
 //PRINT HTML
-print_r($html);
+$sesion->printHtml($html);
+// print_r($html);
 ?>
 <!-- <link href='https://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'> -->
 <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js" type="text/javascript"></script> -->
