@@ -5,7 +5,8 @@ class Producto{
 	private $id_producto;
 	private $nombre;
 	private $stock;
-	private $descripcion;
+    private $descripcion;
+	private $imagen;
 
 
 	/**
@@ -14,11 +15,12 @@ class Producto{
 	 * @param    $stock   
 	 * @param    $descripcion   
 	 */
-    function Producto($nombre="", $stock="", $descripcion="")
+    function Producto($nombre="", $stock="", $descripcion="", $imagen)
 	{
 		$this->setNombre($nombre);
 		$this->setStock($stock);
-		$this->setDescripcion($descripcion);
+        $this->setDescripcion($descripcion);
+		$this->setImagen($imagen);
 	}
 	
     public function getIdProducto()
@@ -58,6 +60,17 @@ class Producto{
     public function setDescripcion($descripcion)
     {
         $this->descripcion = $descripcion;
+
+        return $this;
+    }
+
+    public function getImagen()
+    {
+        return $this->imagen;
+    }
+    private function setImagen($imagen)
+    {
+        $this->imagen = $imagen;
 
         return $this;
     }

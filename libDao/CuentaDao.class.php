@@ -42,5 +42,28 @@ class CuentaDao{
         }
         return $id;
     }
+
+    public function getPermisos($id) {
+        $conexion = new Conexion();
+        $tabla = 'cuenta';
+        $sql=<<<SQL
+			SELECT 
+				p.id AS persona_id,
+				cp.permiso_id AS permiso
+			FROM cuenta c 
+				INNER JOIN cuenta_permisos cp ON c.id=cp.cuenta_id 
+				INNER JOIN persona p ON p.id=c.persona_id
+			WHERE p.id = $id
+SQL;
+        $consulta = $conexion->prepare($sql);
+        $consulta->execute();
+        $permiso = null;
+        $arr =  $consulta->fetchAll();
+        foreach ($arr as $cuenta) {
+            $permiso = $cuenta['permiso'];
+        }
+        return $permiso;
+    }
+    
 }
 ?>

@@ -20,7 +20,7 @@ class Ingresar{
     	<td><input type="submit" id="LOGIN" name="action" value="LOGIN" class="btn form-control"></div>  </td>
     </tr>
     <tr>
-        <td><a class="form-control" href="user/password">¿Olvido su contraseña?</a></div></td>
+        <td><a href="user/password">¿Olvido su contraseña?</a></div></td>
     </tr>
 </table>
 </form>

@@ -17,10 +17,12 @@ class ProductoDao {
         $nombre = $producto->getNombre();
         $stock = $producto->getStock();
         $descripcion = $producto->getDescripcion();
-        $consulta = $conexion->prepare('INSERT INTO ' . $tabla . ' (nombre, stock, descripcion, activo) VALUES(:nombre, :stock, :descripcion, 1)');
+        $imagen = $producto->getImagen();
+        $consulta = $conexion->prepare('INSERT INTO ' . $tabla . ' (nombre, stock, descripcion, ruta_imagen, activo) VALUES(:nombre, :stock, :descripcion, :imagen, 1)');
         $consulta->bindParam(':nombre', $nombre);
         $consulta->bindParam(':stock', $stock);
         $consulta->bindParam(':descripcion', $descripcion);
+        $consulta->bindParam(':imagen', $imagen);
         $consulta->execute();
     }
 
@@ -49,10 +51,12 @@ class ProductoDao {
         $nombre = $producto->getNombre();
         $stock = $producto->getStock();
         $descripcion = $producto->getDescripcion();
-        $consulta = $conexion->prepare('UPDATE ' .$tabla. ' SET nombre = :nombre, stock = :stock, descripcion = :descripcion WHERE id =  :id');
+        $imagen = $producto->getImagen();
+        $consulta = $conexion->prepare('UPDATE ' .$tabla. ' SET nombre = :nombre, stock = :stock, descripcion = :descripcion, ruta_imagen = :imagen WHERE id =  :id');
         $consulta->bindParam(':nombre', $nombre);
         $consulta->bindParam(':stock', $stock);
         $consulta->bindParam(':descripcion', $descripcion);
+        $consulta->bindParam(':imagen', $imagen);
         $consulta->bindParam(':id', $id);
         $consulta->execute();
     }

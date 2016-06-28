@@ -32,10 +32,10 @@ HTML;
     		<div class="distanciaTop panel">
     			<h1>Catalogo</h1>
                 <div class="row">
-                    <div class="col-xs-4">
+                    <!--<div class="col-xs-4">
                         $selectCategoria
-                    </div>
-                    <div class="col-xs-7 panel">
+                    </div>-->
+                    <div class="col-xs-12 panel">
                         $tabla
                     </div>
                 </div>
@@ -103,20 +103,21 @@ HTML;
         $fila = "";
         $i = 1;
         foreach ($arr as $elem) {
-            if ($i == 4) {
+            if ($i == 6) {
                 $i = 1;
             }
             $id = $elem['id'];
             $nom = $elem['nombre'];
             $stock = $elem['stock'];
             $desc = $elem['descripcion'];
+            $ruta_imagen = $elem['ruta_imagen'];
             $paramId = $id;
             $paramNom = "'".$nom."'";
             $paramStock = $stock;
             $paramDesc = "'".$desc."'";
             $fila .=  
-                    '<div class="col-xs-3 mostrador">
-                        <a href="index.php?op=cat"><img src="/webFade/img/arnes.jpg" /></a>
+                    '<div class="col-xs-2 mostrador">
+                        <a href="index.php?op=cat"><img src="'.$ruta_imagen.'" /></a>
                         <label>'.$nom.' '.$desc.'</label>
                         <div> Stock '.$stock.'</div>
                     </div>';

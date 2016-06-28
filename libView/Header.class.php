@@ -14,7 +14,7 @@ class Header{
                 <li><a href="index.php"><strong>Inicio</strong></a></li>
                 <li><a href="index.php?op=cat"><strong>Productos</strong></a></li>
                 <li><a href="index.php?op=6"><strong>Contacto</strong></a></li>
-                <li><strong>Administración</strong>
+                <li id="admin"><strong>Administración</strong>
                 	<ul>
                         <li><a href="index.php?op=8"><strong>Producto</strong></a></li>
                     	<li><a href="index.php?op=7"><strong>Listado Mensajes</strong></a></li>

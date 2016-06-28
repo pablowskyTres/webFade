@@ -173,10 +173,12 @@ switch ($op) {
 		}
 		switch ($do) {
 			case CREAR:
+				$imagen = $_FILES['ruta_imagen'];
+				$ruta = "img/".$imagen['name'];
 				$nom = $_POST['txt_nombre'];
 				$stock = $_POST['txt_stock'];
 				$desc = $_POST['txt_descripcion'];
-				$producto = new Producto($nom, $stock, $desc);
+				$producto = new Producto($nom, $stock, $desc, $ruta);
 				$productoDao->sqlInsert($producto);
 				header('Location: index.php?op=8');
 			break;
@@ -186,11 +188,13 @@ switch ($op) {
 				header('Location: index.php?op=8');
 			break;
 			case MODIFICAR:
+				$imagen = $_FILES['ruta_imagen'];
+				$ruta = "img/".$imagen['name'];
 				$id = $_POST['id'];
 				$nom = $_POST['txt_nombre'];
 				$stock = $_POST['txt_stock'];
 				$desc = $_POST['txt_descripcion'];
-				$producto = new Producto($nom, $stock, $desc);
+				$producto = new Producto($nom, $stock, $desc, $ruta);
 				$productoDao->sqlUpdate($producto, $id);
 				header('Location: index.php?op=8');
 			break;

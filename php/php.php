@@ -17,6 +17,16 @@ switch ($_POST['cmd']) {
 		}
 		break;
 
+	case 'getPermisos':
+		$permiso = $cuentaDao->getPermisos($_POST['id']);
+		print_r($permiso);
+		if ($permiso > 0) {
+			$retorno = 1;
+		}else{
+			$retorno = 0;
+		}
+		break;
+
 	default:
 		$retorno = "RETORNO DEFAULT";
 		break;
